@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class OnlineQuiz 
+{
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        String[] questions ={
+                "What is the process of creating an object from a class called?",
+                "Which type of inheritance allows a class to inherit from multiple parent classes?",
+                "Which keyword is used to declare a constant in Java?"
+        };
+        String[][] options={
+                {"Instantiation", "Inheritance", "Polymorphism", "Encapsulation"},
+                {"Single inheritance", "Multiple inheritance", "Hierarchical inheritance", "Hybrid inheritance"},
+                {"final", "const", "static", "immutable"}
+        };
+        int[] correctAnswers={1, 4, 1}; 
+        int score=0;
+        for (int i=0;i<questions.length;i++) {
+            System.out.println(questions[i]);
+            for (int j=0;j<options[i].length;j++) {
+                System.out.println((j+1)+ ". " + options[i][j]);
+            }
+
+            System.out.print("Enter your choice: ");
+            int userChoice=scanner.nextInt();
+
+            if (userChoice>=1 && userChoice <= options[i].length && userChoice == correctAnswers[i]) {
+                score++;
+            }
+        }
+
+        System.out.println("Your score: " + score + "/" + questions.length);
+    }
+}
